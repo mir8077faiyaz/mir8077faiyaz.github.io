@@ -6,8 +6,6 @@
 **GitHub:** [mir8077faiyaz](https://github.com/mir8077faiyaz)  
 **LinkedIn:** [mir-faiyaz-hossain](https://www.linkedin.com/in/mir-faiyaz-hossain-573b7b229/)
 
-## Summary
-I am a graduate of North South University, Dhaka, with a degree in Computer Science and Engineering. I am passionate about making a meaningful impact in the world using the skills and knowledge I’ve acquired. My interests lie deeply in study, research, and teaching.
 
 ## Education
 
