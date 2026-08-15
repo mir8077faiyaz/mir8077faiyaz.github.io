@@ -9,7 +9,7 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/mir-faiyaz-hossain-573b7b229/',
   scholar: 'https://scholar.google.com/citations?user=bKzBdFwAAAAJ&hl=en&oi=ao',
   cvUrl: '/cv/Mir_Faiyaz_Hossain_CV.pdf', // drop your CV PDF in /public/cv/ with this filename, or update this path
-  avatar: 'public\images\profile.jpg', // drop your photo in /public/images/ with this filename, or update this path
+  avatar: '/images/profile.jpg', // drop your photo in /public/images/ with this filename, or update this path
   bio: [
     'I\u2019m a former lecturer in the Department of Computer Science and Engineering at Daffodil International University, Dhaka, Bangladesh. I completed my B.Sc. in Computer Science and Engineering from North South University, graduating with the highest academic honor, Summa Cum Laude.',
     'Previously, I worked as a Teaching Assistant in the Department of Electrical and Computer Engineering at North South University, where I supported undergraduate courses and mentored students in their academic and research journeys.',

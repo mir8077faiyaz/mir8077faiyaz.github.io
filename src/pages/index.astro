@@ -33,8 +33,15 @@ const news = (await getCollection('news')).sort(
         </div>
       </div>
 
-      <div class="hero-visual reveal">
+      <!-- <div class="hero-visual reveal">
         <VennMark />
+      </div> -->
+      <div class="hero-visual reveal">
+        <img
+          src={site.avatar}
+          alt={`${site.name} profile photo`}
+          class="profile-photo"
+        />
       </div>
     </div>
   </section>
