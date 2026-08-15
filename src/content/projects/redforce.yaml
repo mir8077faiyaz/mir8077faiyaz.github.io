@@ -3,7 +3,6 @@ context: "CSE299: Junior Design"
 start: August 2022
 end: December 2022
 order: 4
-image: /images/projects/redforce.jpg
 summary:
   - Developed a web application for secure data storage on Google Drive, using encryption accessible only through the app.
   - Implemented face recognition and face anti-spoofing technologies to ensure secure user authentication.

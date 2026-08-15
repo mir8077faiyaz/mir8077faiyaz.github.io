@@ -3,7 +3,6 @@ context: "CSE327: Software Engineering"
 start: July 2023
 end: November 2023
 order: 3
-image: /images/projects/parking-lagbe.jpg
 summary:
   - Developed Parking Lagbe, a web-based parking management application connecting vehicle owners with parking spot providers.
   - Integrated the Google Maps API to enable interactive visualization and navigation to available parking locations.

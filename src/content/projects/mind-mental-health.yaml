@@ -3,7 +3,6 @@ context: "CSE445: Machine Learning"
 start: July 2023
 end: November 2023
 order: 2
-image: /images/projects/mind.jpg
 summary:
   - Designed a 38-question survey to analyze technology usage and its impact on mental health, collecting 624 responses via Google Forms.
   - Applied machine learning algorithms to classify mental states into three categories using selected features.
