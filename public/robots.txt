@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mir8077faiyaz.github.io/sitemap.xml

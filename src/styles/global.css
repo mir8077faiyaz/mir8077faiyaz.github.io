@@ -1,0 +1,249 @@
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/600-italic.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+/* -------------------------------------------------------------------------
+   Design tokens
+   Light: warm paper-charcoal text on soft off-white.
+   Dark: deep charcoal (not pure black) with a restrained emerald accent.
+   ------------------------------------------------------------------------- */
+:root {
+  --font-display: 'Fraunces', 'Iowan Old Style', ui-serif, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --bg: #f7f8f6;
+  --bg-elevated: #ffffff;
+  --bg-inset: #eef1ee;
+  --text: #17211c;
+  --text-muted: #55625a;
+  --text-faint: #8b968f;
+  --border: #dde2dd;
+  --border-strong: #c7cec6;
+
+  --accent: #0f6e5c;
+  --accent-strong: #0b5648;
+  --accent-soft: #dcefe9;
+  --accent-contrast: #f4fbf8;
+
+  --shadow-color: 220 20% 20%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.06);
+  --shadow-md: 0 8px 24px -8px hsl(var(--shadow-color) / 0.16);
+  --shadow-lg: 0 24px 48px -16px hsl(var(--shadow-color) / 0.22);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --container: 920px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme='dark'] {
+  --bg: #121615;
+  --bg-elevated: #191f1d;
+  --bg-inset: #1e2523;
+  --text: #eaeeeb;
+  --text-muted: #a3aca6;
+  --text-faint: #6e786f;
+  --border: #2a332f;
+  --border-strong: #3a453f;
+
+  --accent: #34b892;
+  --accent-strong: #57d1ab;
+  --accent-soft: #1c332c;
+  --accent-contrast: #0b1310;
+
+  --shadow-color: 160 30% 2%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.4);
+  --shadow-md: 0 8px 24px -8px hsl(var(--shadow-color) / 0.6);
+  --shadow-lg: 0 24px 48px -16px hsl(var(--shadow-color) / 0.7);
+}
+
+/* -------------------------------------------------------------------------
+   Reset & base
+   ------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+html[data-theme='dark'] { color-scheme: dark; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; color: var(--text); }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+::selection { background: var(--accent-soft); color: var(--accent-strong); }
+
+/* Focus visibility (accessibility) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* -------------------------------------------------------------------------
+   Layout helpers
+   ------------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  margin-bottom: 8px;
+}
+
+.section-lede {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+/* -------------------------------------------------------------------------
+   Buttons & chips
+   ------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: var(--accent-strong); box-shadow: var(--shadow-md); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------------------
+   Cards
+   ------------------------------------------------------------------------- */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* -------------------------------------------------------------------------
+   Reveal-on-scroll (progressive enhancement; respects reduced motion)
+   ------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn:hover { transform: none; }
+  .card:hover { transform: none; }
+}
+
+/* -------------------------------------------------------------------------
+   Responsive helpers
+   ------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .section { padding: 52px 0; }
+  .wrap { padding: 0 18px; }
+}

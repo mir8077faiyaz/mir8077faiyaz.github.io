@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pubs = (await getCollection('publications')).sort((a, b) => {
+  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  return a.data.order - b.data.order;
+});
+
+const byYear = pubs.reduce<Record<number, typeof pubs>>((acc, p) => {
+  (acc[p.data.year] ??= []).push(p);
+  return acc;
+}, {});
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+---
+<BaseLayout title="Publications" description="Peer-reviewed publications by Mir Faiyaz Hossain.">
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Peer-reviewed work</p>
+      <h1 class="section-title reveal">Publications</h1>
+      <p class="section-lede reveal">Journal and conference publications, listed by year.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {years.map((year) => (
+        <div class="year-block">
+          <h2 class="year-heading reveal">{year}</h2>
+          <ol class="pub-list">
+            {byYear[year].map((pub) => (
+              <li class="pub-item reveal">
+                <span class="pub-code tag">{pub.data.code}</span>
+                <div class="pub-body">
+                  <p class="pub-authors">{pub.data.authors.join(', ')}.</p>
+                  <p class="pub-title">
+                    {pub.data.link ? (
+                      <a href={pub.data.link} target="_blank" rel="noopener noreferrer">{pub.data.title}</a>
+                    ) : pub.data.title}
+                  </p>
+                  <p class="pub-venue">
+                    {pub.data.status && <span class="pub-status">{pub.data.status} in:</span>} {pub.data.venue}
+                  </p>
+                  <div class="pub-links">
+                    {pub.data.link && <a href={pub.data.link} target="_blank" rel="noopener noreferrer">Paper</a>}
+                    {pub.data.codeUrl && <a href={pub.data.codeUrl} target="_blank" rel="noopener noreferrer">Code</a>}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-bottom: 24px; }
+
+  .year-block + .year-block { margin-top: 44px; }
+
+  .year-heading {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .pub-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+  }
+
+  .pub-code {
+    height: fit-content;
+    font-weight: 600;
+  }
+
+  .pub-authors {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+  }
+  .pub-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+  }
+  .pub-title a:hover { color: var(--accent); }
+  .pub-venue {
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .pub-status {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .pub-links {
+    display: flex;
+    gap: 14px;
+  }
+  .pub-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .pub-links a:hover { color: var(--accent-strong); }
+
+  @media (max-width: 560px) {
+    .pub-item { grid-template-columns: 1fr; }
+  }
+</style>

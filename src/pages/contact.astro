@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const channels = [
+  { label: 'Email', value: site.email, href: `mailto:${site.email}` },
+  { label: 'GitHub', value: 'mir8077faiyaz', href: site.github },
+  { label: 'LinkedIn', value: 'mir-faiyaz-hossain', href: site.linkedin },
+  { label: 'Google Scholar', value: 'View profile', href: site.scholar },
+];
+---
+<BaseLayout title="Contact" description={`Get in touch with ${site.name}.`}>
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Let&rsquo;s talk</p>
+      <h1 class="section-title reveal">Contact</h1>
+      <p class="section-lede reveal">
+        Open to Ph.D. opportunities, research collaboration, and academic networking. The fastest way to reach me is email.
+      </p>
+    </div>
+  </section>
+
+  <section class="section contact-section">
+    <div class="wrap contact-grid">
+      <ul class="channel-list">
+        {channels.map((c) => (
+          <li class="channel-item card reveal">
+            <a href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+              <span class="channel-label">{c.label}</span>
+              <span class="channel-value">{c.value}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="contact-note reveal">
+        <p class="eyebrow">Currently</p>
+        <p>Actively exploring Ph.D. opportunities in Computer Vision and Natural Language Processing, with a focus on Vision-Language Models, Few-Shot Learning, and Deep Generative Models.</p>
+        <p>If our research interests overlap, I&rsquo;d love to hear from you — feel free to reach out directly by email.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-bottom: 24px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .channel-item a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 22px;
+  }
+
+  .channel-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .channel-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex: 1;
+  }
+
+  .channel-item svg { color: var(--text-faint); transition: transform 0.2s var(--ease), color 0.2s var(--ease); }
+  .channel-item a:hover svg { color: var(--accent); transform: translate(2px, -2px); }
+
+  .contact-note {
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 26px 28px;
+  }
+  .contact-note p { color: var(--text-muted); font-size: 0.95rem; }
+  .contact-note p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 780px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .channel-item a { flex-wrap: wrap; }
+  }
+</style>

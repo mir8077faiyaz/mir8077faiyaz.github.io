@@ -1,0 +1,24 @@
+title: "Advanced CKD Detection Using Machine Learning: A Tri-Phase Ensemble and Multi-Layered Stacking and Blending Approach"
+context: "CSE498R: Directed Research"
+start: Feb 2024
+end: Aug 2024
+status: Under Review
+order: 0
+paperUrl: https://www.sciencedirect.com/science/article/pii/S2666990024000405
+doi: "10.1016/j.cmpbup.2024.100173"
+stack:
+  - Python
+  - Scikit-Learn
+  - NumPy
+  - Pandas
+  - Matplotlib
+  - Seaborn
+  - SMOTE
+  - RFECV
+  - LIME
+bullets:
+  - Utilized two data encoding techniques, Discrete Encoding and Ranged Encoding, to align the open-source CKD datasets (CKD15 and CKD21) with inconsistent feature types for model training.
+  - Investigated multiple feature selection techniques and a unified feature selection approach to identify the optimal number of features for training and evaluating various classifiers.
+  - "Proposed a novel ensemble classifier, Tri-phase Ensemble, combining Voting, Bagging, and Stacking techniques, and compared its performance with base classifiers."
+  - Implemented two Multi-layer Ensemble Classifiers using blending and stacking approaches, with interchanged layers to monitor their performance and robustness.
+  - Applied explainable AI to understand and interpret the predictions made by the machine learning models.

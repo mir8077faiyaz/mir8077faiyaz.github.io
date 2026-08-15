@@ -1,0 +1,122 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const research = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Research" description="Published and ongoing research by Mir Faiyaz Hossain.">
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Directed research</p>
+      <h1 class="section-title reveal">Research</h1>
+      <p class="section-lede reveal">In-depth research work, methods, and findings.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap research-list">
+      {research.map((item) => (
+        <article class="research-card card reveal">
+          <div class="research-head">
+            <div>
+              <p class="research-context">{item.data.context} &middot; {item.data.start} &ndash; {item.data.end}</p>
+              <h2 class="research-title">
+                {item.data.paperUrl ? (
+                  <a href={item.data.paperUrl} target="_blank" rel="noopener noreferrer">{item.data.title}</a>
+                ) : item.data.title}
+              </h2>
+            </div>
+            {item.data.status && <span class="tag status-tag">{item.data.status}</span>}
+          </div>
+
+          <ul class="research-bullets">
+            {item.data.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+
+          {item.data.doi && (
+            <p class="research-doi">DOI: <a href={`https://doi.org/${item.data.doi}`} target="_blank" rel="noopener noreferrer">{item.data.doi}</a></p>
+          )}
+
+          {item.data.stack && (
+            <div class="research-stack">
+              {item.data.stack.map((s) => <span class="tag">{s}</span>)}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-bottom: 24px; }
+
+  .research-list { display: flex; flex-direction: column; gap: 26px; }
+
+  .research-card { padding: 28px 30px; }
+
+  .research-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .research-context {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+
+  .research-title {
+    font-size: 1.3rem;
+  }
+  .research-title a:hover { color: var(--accent); }
+
+  .status-tag { flex-shrink: 0; color: var(--accent); border-color: var(--accent-soft); background: var(--accent-soft); }
+
+  .research-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 16px;
+  }
+  .research-bullets li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+  .research-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 1px;
+    background: var(--text-faint);
+  }
+
+  .research-doi {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+  .research-doi a { color: var(--accent); }
+
+  .research-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .research-card { padding: 20px; }
+    .research-head { flex-direction: column; }
+  }
+</style>

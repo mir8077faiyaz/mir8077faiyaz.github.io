@@ -1,0 +1,10 @@
+track: industry
+role: BNEXT Intern — Product & Technology (Merchant Products)
+org: bKash Limited
+start: Oct 2024
+end: Dec 2024
+order: 0
+bullets:
+  - Developed a Retrieval-Augmented Generation (RAG) chatbot for payment gateway products
+  - Integrated payment APIs into a mini e-commerce system
+  - Supported merchant onboarding, UAT, and on-site integrations

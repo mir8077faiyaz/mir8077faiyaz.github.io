@@ -1,0 +1,17 @@
+title: "Assessing the Impact of Digital Technology on Mental Health"
+context: "CSE445: Machine Learning"
+start: July 2023
+end: November 2023
+order: 2
+image: /images/projects/mind.jpg
+summary:
+  - Designed a 38-question survey to analyze technology usage and its impact on mental health, collecting 624 responses via Google Forms.
+  - Applied machine learning algorithms to classify mental states into three categories using selected features.
+  - Performed feature selection and hyperparameter tuning to improve model performance.
+  - Employed LIME (Local Interpretable Model-Agnostic Explanations) to interpret and explain model predictions.
+stack:
+  - Scikit-Learn
+  - Pandas
+  - NumPy
+link: https://github.com/mir8077faiyaz/MIND-Mental-Health-Impact-and-Navigation-due-to-Digital-Technology
+linkLabel: MIND-Mental-Health-Impact-and-Navigation

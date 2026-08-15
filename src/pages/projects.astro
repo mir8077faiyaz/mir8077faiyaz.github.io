@@ -1,0 +1,142 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Projects" description="Selected projects by Mir Faiyaz Hossain spanning computer vision, NLP, and applied software engineering.">
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Selected work</p>
+      <h1 class="section-title reveal">Projects</h1>
+      <p class="section-lede reveal">Coursework and independent builds spanning computer vision, NLP, and applied software engineering.</p>
+    </div>
+  </section>
+
+  <section class="section project-section">
+    <div class="wrap project-grid">
+      {projects.map((project) => (
+        <article class="project-card card reveal">
+          {project.data.image && (
+            <div class="project-image">
+              <img src={project.data.image} alt={project.data.title} loading="lazy" />
+            </div>
+          )}
+          <div class="project-body">
+            <p class="project-context">{project.data.context} &middot; {project.data.start} &ndash; {project.data.end}</p>
+            <h2 class="project-title">{project.data.title}</h2>
+            {project.data.subtitle && <p class="project-subtitle">{project.data.subtitle}</p>}
+            <ul class="project-summary">
+              {project.data.summary.map((s) => <li>{s}</li>)}
+            </ul>
+            <div class="project-stack">
+              {project.data.stack.map((s) => <span class="tag">{s}</span>)}
+            </div>
+            {project.data.link && (
+              <a class="project-link" href={project.data.link} target="_blank" rel="noopener noreferrer">
+                {project.data.linkLabel ?? 'View repository'}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-bottom: 24px; }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .project-image {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-inset);
+    overflow: hidden;
+  }
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease);
+  }
+  .project-card:hover .project-image img { transform: scale(1.04); }
+
+  .project-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+
+  .project-context {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-size: 1.22rem;
+    margin-bottom: 4px;
+  }
+  .project-subtitle {
+    color: var(--text-faint);
+    font-size: 0.88rem;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .project-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 10px 0 16px;
+  }
+  .project-summary li {
+    position: relative;
+    padding-left: 16px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .project-summary li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 1px;
+    background: var(--text-faint);
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 6px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .project-link:hover { color: var(--accent-strong); }
+
+  @media (max-width: 860px) {
+    .project-grid { grid-template-columns: 1fr; }
+  }
+</style>

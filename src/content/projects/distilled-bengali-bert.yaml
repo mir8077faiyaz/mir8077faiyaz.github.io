@@ -1,0 +1,12 @@
+title: "Distilled Monolingual BERT Models Trained on Bengali Language"
+subtitle: "Distilled Monolingual BERT Models for the Bengali Language"
+context: "CSE465: Pattern Recognition and Neural Networks"
+start: Feb 2023
+end: June 2023
+order: 1
+image: /images/projects/bengali-bert.jpg
+summary:
+  - Investigated two knowledge distillation techniques to assess whether smaller models can achieve performance comparable to large language models with hundreds of millions of parameters.
+  - Developed two distilled monolingual BERT models, including pre-training and fine-tuning on Bengali language datasets.
+stack:
+  - PyTorch

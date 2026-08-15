@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const all = await getCollection('experience');
+const academic = all.filter((e) => e.data.track === 'academic').sort((a, b) => a.data.order - b.data.order);
+const industry = all.filter((e) => e.data.track === 'industry').sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Experience" description="Academic and industry experience of Mir Faiyaz Hossain.">
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow reveal">Where I&rsquo;ve worked</p>
+      <h1 class="section-title reveal">Experience</h1>
+      <p class="section-lede reveal">Teaching, mentoring, and applied engineering across academia and industry.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="track-title reveal">Academic Experience</h2>
+      <ol class="timeline">
+        {academic.map((item) => (
+          <li class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-body card">
+              <div class="timeline-meta">
+                <span class="timeline-dates">{item.data.start} &ndash; {item.data.end}</span>
+              </div>
+              <h3 class="timeline-role">{item.data.role}</h3>
+              <p class="timeline-org">{item.data.org}{item.data.location ? ` · ${item.data.location}` : ''}</p>
+              <ul class="timeline-bullets">
+                {item.data.bullets.map((b) => <li>{b}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="track-title reveal">Industry Experience</h2>
+      <ol class="timeline">
+        {industry.map((item) => (
+          <li class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-body card">
+              <div class="timeline-meta">
+                <span class="timeline-dates">{item.data.start} &ndash; {item.data.end}</span>
+              </div>
+              <h3 class="timeline-role">{item.data.role}</h3>
+              <p class="timeline-org">{item.data.org}{item.data.location ? ` · ${item.data.location}` : ''}</p>
+              <ul class="timeline-bullets">
+                {item.data.bullets.map((b) => <li>{b}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding-bottom: 24px; }
+
+  .track-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 28px;
+  }
+
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-left: 28px;
+    border-left: 1px solid var(--border);
+  }
+
+  .timeline-item { position: relative; }
+  .timeline-marker {
+    position: absolute;
+    left: -33.5px;
+    top: 26px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  .timeline-body {
+    padding: 24px 26px;
+  }
+
+  .timeline-meta { margin-bottom: 8px; }
+  .timeline-dates {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .timeline-role {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .timeline-org {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+  .timeline-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .timeline-bullets li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+  .timeline-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 1px;
+    background: var(--text-faint);
+  }
+
+  @media (max-width: 640px) {
+    .timeline { padding-left: 20px; }
+    .timeline-marker { left: -25.5px; }
+    .timeline-body { padding: 18px; }
+  }
+</style>

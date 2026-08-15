@@ -1,0 +1,60 @@
+---
+---
+<div class="venn" aria-hidden="true">
+  <svg viewBox="0 0 320 280" width="100%" height="100%">
+    <circle class="c c-vision" cx="130" cy="130" r="92" />
+    <circle class="c c-language" cx="210" cy="150" r="92" />
+    <text class="label label-vision" x="78" y="80" text-anchor="middle">Vision</text>
+    <text class="label label-language" x="262" y="200" text-anchor="middle">Language</text>
+    <text class="label label-vlm" x="170" y="145" text-anchor="middle">VLM</text>
+  </svg>
+</div>
+
+<style>
+  .venn {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 320 / 280;
+    margin-inline: auto;
+  }
+  .c {
+    fill: none;
+    stroke-width: 1.4;
+    mix-blend-mode: normal;
+  }
+  .c-vision {
+    stroke: var(--accent);
+    fill: color-mix(in srgb, var(--accent) 10%, transparent);
+    animation: float-a 9s var(--ease) infinite;
+    transform-origin: 130px 130px;
+  }
+  .c-language {
+    stroke: var(--text-faint);
+    fill: color-mix(in srgb, var(--text) 5%, transparent);
+    animation: float-b 11s var(--ease) infinite;
+    transform-origin: 210px 150px;
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    fill: var(--text-muted);
+  }
+  .label-vlm {
+    fill: var(--accent);
+    font-weight: 600;
+  }
+
+  @keyframes float-a {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-6px, 5px); }
+  }
+  @keyframes float-b {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(6px, -5px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .c-vision, .c-language { animation: none; }
+  }
+</style>

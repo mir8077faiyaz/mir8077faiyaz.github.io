@@ -1,0 +1,18 @@
+title: "DigiTel: Automated Fuel Dispenser Text Extraction and Anomaly Detection System"
+context: "CSE499: Senior Design Capstone"
+start: July 2023
+end: May 2024
+order: 0
+image: /images/projects/digitel.jpg
+summary:
+  - Developed a system to accurately and efficiently extract text from LCD panels, targeting scenarios where standard OCR models perform poorly.
+  - Integrated an anomaly detection module to identify displays with missing or cropped text.
+  - Designed and implemented an API to enable multi-platform access to the system.
+stack:
+  - PyTorch
+  - Flask
+  - Android Studio
+  - MySQL
+  - CVAT
+link: https://github.com/mir8077faiyaz/DigiTel_API
+linkLabel: DigiTel_API
