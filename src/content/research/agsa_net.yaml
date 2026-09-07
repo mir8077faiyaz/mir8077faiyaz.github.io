@@ -1,0 +1,17 @@
+title: "AGSA-Net: Abundance-Guided Self-Attention Network for Spectral Unmixing-Aware Hyperspectral Remote Sensing Image Classification"
+context: "Research Assistant, North South University"
+start: Jan 2026
+end: Sept 2026
+status: Published
+order: 0
+paperUrl: https://ieeexplore.ieee.org/document/11675920/
+doi: "10.1109/TGRS.2026.3729910"
+stack:
+  - Python
+  - PyTorch
+bullets:
+  - Developed AGSA-Net, a dual-branch framework that integrates spectral unmixing with transformer-based hyperspectral image classification.
+  - Estimated physically meaningful subpixel abundance maps and constructed an abundance affinity prior to capture material-level relationships between pixels.
+  - Proposed an abundance-guided multi-head self-attention mechanism that injects material affinity directly into the transformer attention computation.
+  - Fused abundance-derived material descriptors with transformer-based spectral-spatial representations for final hyperspectral image classification.
+  - Evaluated the proposed approach on the Indian Pines, Augsburg, and Berlin hyperspectral datasets, demonstrating improved contextual modeling particularly in heterogeneous scenes.
