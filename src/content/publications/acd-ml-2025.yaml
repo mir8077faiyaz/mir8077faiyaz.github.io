@@ -2,7 +2,7 @@ code: J1
 year: 2025
 order: 1
 authors:
-  - "**Mir Faiyaz Hossain**"
+  - Mir Faiyaz Hossain
   - Shajreen Tabassum Diya
   - Riasat Khan
 title: "ACD-ML: Advanced CKD detection using machine learning: A tri-phase ensemble and multi-layered stacking and blending approach"
