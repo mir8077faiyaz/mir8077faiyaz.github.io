@@ -1,0 +1,11 @@
+track: academic
+role: Research Assistant
+org: North South University
+location: Dhaka, Bangladesh
+start: [Jan 2026]
+end: Present
+order: 0
+bullets:
+  - Conducting research in Computer Vision and Hyperspectral Learning, with a focus on robust and data-efficient hyperspectral image understanding
+  - Working on Test-Time Adaptation, Spectral-Spatial Learning, and Few-Shot Learning for hyperspectral image classification under distribution shifts and limited supervision
+  - Exploring spectral unmixing, abundance-aware representation learning, and diffusion-based spectral representation refinement for robust hyperspectral learning
