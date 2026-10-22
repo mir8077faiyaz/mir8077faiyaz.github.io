@@ -6,6 +6,7 @@ start: Jan 2026
 end: Present
 order: 0
 bullets:
-  - Conducting research in Computer Vision and Hyperspectral Learning, with a focus on robust and data-efficient hyperspectral image understanding
-  - Working on Test-Time Adaptation, Spectral-Spatial Learning, and Few-Shot Learning for hyperspectral image classification under distribution shifts and limited supervision
-  - Exploring spectral unmixing, abundance-aware representation learning, and diffusion-based spectral representation refinement for robust hyperspectral learning
+  - "Hyperspectral Imaging: Developing methods for spectral unmixing-aware classification, test-time adaptation under distribution shifts, and cross-domain few-shot learning through AGSA-Net, HyperDiff, and SAP-FSL."
+  - "Video Understanding: Developing DUGO, an online temporal action localization framework for egocentric procedural videos using dual-scale temporal encoding and Gaussian memory."
+  - "Low-Resource Language Processing: Investigating knowledge distillation for efficient, fine-grained Bengali hate speech detection while reducing model complexity and maintaining competitive performance."
+  - "Trustworthy Multimodal Learning: Exploring the evaluation and trustworthiness of Unified Multimodal Models (UMMs)."
