@@ -8,7 +8,8 @@ export const site = {
   github: 'https://github.com/mir8077faiyaz',
   linkedin: 'https://www.linkedin.com/in/mir-faiyaz-hossain-573b7b229/',
   scholar: 'https://scholar.google.com/citations?user=bKzBdFwAAAAJ&hl=en&oi=ao',
-  cvUrl: '/cv/Mir_Faiyaz_Hossain_CV.pdf', // drop your CV PDF in /public/cv/ with this filename, or update this path
+  // cvUrl: '/cv/Mir_Faiyaz_Hossain_CV.pdf', // drop your CV PDF in /public/cv/ with this filename, or update this path
+  cvUrl: 'https://drive.google.com/file/d/1MCxHiC7XAE0_yprXDUmHoCnvFlu1HHqd/view?usp=sharing',
   avatar: '/images/profile.jpg', // drop your photo in /public/images/ with this filename, or update this path
   bio: [
 
