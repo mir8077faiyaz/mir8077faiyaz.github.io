@@ -1,0 +1,17 @@
+
+title: "DUGO: Dual-Scale Gaussian Memory for Online Temporal Action Localization in Egocentric Procedural Videos"
+start: March 2026
+end: Oct 2026
+status: Accepted
+order: 0
+paperUrl: 
+doi: ""
+stack:
+  - Python
+  - PyTorch
+bullets:
+  - DUGO: A dual-scale temporal encoding framework combining depthwise convolutions and Transformer-based self-attention to capture fine-grained motion patterns and long-range temporal dependencies in streaming videos.
+  - DUGO's Gaussian Memory Bank (GMB) uses input-conditioned Gaussian prototypes and gated cross-attention to model diverse procedural histories and enrich encoder representations and action anchor queries.
+  - Integration of a 1D Distance-IoU (DIoU) regression loss within DUGO to improve temporal action boundary localization through joint optimization of segment overlap and center alignment.
+  - Evaluation of DUGO on EGTEA, EPIC-Kitchens-100, and MUSES, demonstrating strong online action localization performance across egocentric procedural and general video benchmarks.
+  - Ablation studies of DUGO highlighting the complementary benefits of dual-scale temporal encoding, stochastic Gaussian memory, and DIoU-based regression for online temporal action localization.
