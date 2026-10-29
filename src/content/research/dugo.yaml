@@ -5,7 +5,7 @@ start: March 2026
 end: Oct 2026
 status: Accepted
 order: 0
-# paperUrl: ""
+paperUrl: https://aman554-eq.github.io/DUGO/
 doi: ""
 stack:
   - Python
